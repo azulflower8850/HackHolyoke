@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+
+	<title>Status</title> 
+	<link rel = "stylesheet" href = "css/reset.css" media = "screen">
+	<link rel = "stylesheet" href = "css/main.css" media = "screen">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<script src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<!-- <script type="text/javascript">
+          function sum()
+          {
+             var num1 = document.myform.number1.value;
+             document.getElementById('name').innerHTML = "Hi " + num1;
+          }
+    </script> -->
+</head>
+
+
+<body>
+	<section class = "welcome">
+		<h1 id = "welcome">Bike Status</h1>
+	</section>
+	<section class = "main-info">
+		<p> Bike 1 </p>
+
+<br>
+
+<button type="button" onclick="Showinfo()">Click here to see who has the bike</button>
+<p id="taken"></p>
+<p id="chicken"></p>
+<p id="chicken2"></p>
+<p id="chicken3"></p>
+<p id="open"></p>
+
+<br>
+	
+<form action="Checkout.html">
+	<input type="submit" value="Checkout">
+</form>	
+
+<br>
+<br>
+
+<form action="Checkin.html">
+	<input type="submit" value="Checkin">
+</form>		
+
+<br>
+<br>
+
+<form action="ReservePing.html">
+	<input type="submit" value="Reserve/Ping">
+</form>		
+
+<br>
+<br>
+
+<form action="Report.html">
+	<input type="submit" value="Report a Problem">
+</form>	
+
+
+<script>
+function Showinfo(){
+if(localStorage.getItem("Reported")=="1"){
+		document.getElementById("taken").innerHTML =" Sorry this bike is currently under repair. Try a different bike!";
+		}
+else
+{		
+if((localStorage.getItem("name"))!= "")	{
+	
+	
+			document.getElementById("taken").innerHTML = "This bike is currently in use. The person and contact information are:<br /><br />"
+			document.getElementById("chicken").innerHTML = "Person Name: " + localStorage.getItem("name");
+			document.getElementById("chicken2").innerHTML = "Email: " + localStorage.getItem("email");
+			document.getElementById("chicken3").innerHTML = "Time checked out: " + localStorage.getItem("time");
+		
+}
+else
+{
+	document.getElementById("open").innerHTML = "It's Available!";
+}
+}
+}
+</script>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+
+	<title>Availabilities</title> 
+	<link rel = "stylesheet" href = "css/reset.css" media = "screen">
+	<link rel = "stylesheet" href = "css/main.css" media = "screen">	
+	<link rel = "stylesheet" href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Oswald|PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<script src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src = "app.js"></script>
+</head>
+
+<body>
+
+<!-- Button trigger modal -->
+	
+<!-- Modal -->
+<div class="modal fade" id="Modala" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Available - Check Out</h4>
+      </div>
+      <div class="modal-body">
+      		<h1>Checkout</h1>
+
+			<p> Please enter your name </p>
+			<input id="name" type="String">
+
+			<p>Please enter your email address </p>
+			<input id="email" type="String">
+
+			<p>Please enter the time you took the bike </p>
+			<input id="time" type="String">
+
+			<p>Please enter a password. Remember this for when you check back in!</p>
+			<input id="password" type="String">
+
+			<button type="button" onclick="Checkout()">Submit</button>
+
+			<p id="demo"></p>
+
+
+			<script>
+function Checkout() {
+	var name, email, time, pass, text;
+	if(localStorage.getItem("name") == ""){
+
+	name = document.getElementById("name").value;
+	email = document.getElementById("email").value;
+	time = document.getElementById("time").value;
+	pass = document.getElementById("password").value;
+
+	localStorage.setItem("name", name);
+	localStorage.setItem("email", email);
+	localStorage.setItem("time", time);
+	localStorage.setItem("password", pass);
+
+	text = "You have checked out this bike. Remember to return it when you're done!"
+    }
+    else{
+    	text = "I am sorry, someone has already checked out this bike. Please wait for it return before attempting to check it out again."
+    } 
+	document.getElementById("demo").innerHTML = text;
+			}
+			</script>
+			      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="Modalu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Unavailable - Reserve</h4>
+      </div>
+      <div class="modal-body">
+	      	<h1> Want the bike? Ping the User </h1>
+	      	<button type="button" onclick="sendPing(); return false"> Send Ping </button>
+
+      		<h1> Returning Bike? Check-In Here: </h1>
+
+
+<p> Remember your password? Now use it to check in! </p>
+<input id="pass" type="String">
+
+
+<button onclick="Checkin()">Submit</button>
+
+
+<p id="check" ></p>
+
+<br>
+
+
+
+
+	
+<script> 
+function Checkin(){
+	var pass, passcheck, text, next;
+
+
+	pass = document.getElementById("pass").value;
+	passcheck = localStorage.getItem("password");
+	if(pass == passcheck)
+
+		{ 
+			localStorage.setItem("name", "");
+			localStorage.setItem("email", "");
+			localStorage.setItem("time","");
+			localStorage.setItem("password","");
+			text = "Thanks for checking in! Hope you enjoyed your ride! "
+
+			next=localStorage.getItem("Queue");
+			if(next != ""){
+				text += "<br />There is someone in line behind you for the bike. Can you please notify or email "+next+ " as soon as possible so he can use the bike? Thank you so much! Have a great day!<br />"
+				localStorage.setItem("Queue","");
+
+
+
+
+
+		}	
+			}
+	else 
+	{
+		text = "Sorry, that was not the correct password. Please either retype your password or wait until the real user comes back!"
+	}
+
+document.getElementById("check").innerHTML = text;
+
+
+
+}
+
+</script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="Modalb" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Broken - Track</h4>
+      </div>
+      <div class="modal-body">
+      		<p>Bike is broken and unavailable!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+	<section id ="title">
+		<h1>Bike Availability</h1>
+	</section>
+<!-- use jquery to change the class on the icon background jquery.switchclass -->
+	<div id = "square"> </div>
+	<section class = "icon-grid">
+		<ul>
+			<li>
+				<figure>
+					<button type="button" id="btn1" data-toggle="modal" data-target="#Modala">
+					  	<img src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 1</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn1" data-toggle="modal" data-target="#Modala">
+					  	<img src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 2</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn2" data-toggle="modal" data-target="#Modalu">
+					  	<img id = "red" src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 3</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn1" data-toggle="modal" data-target="#Modala">
+					  	<img src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 4</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn3" data-toggle="modal" data-target="#Modalb">
+					  	<img id = "yellow" src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 5</p>
+					</figcaption>
+				</figure>				
+			</li>
+		</ul>
+	</section> 
+	
+	<div style="text-align:center;">
+	<button type="button" id="btnreport" data-toggle="modal" data-target="#Modalq">
+	Report a Problem
+	</button>
+	</div>
+
+	
+</body>
+</html>
+
+<script>
+	function sendPing() {
+    var link = "mailto:"+localStorage.getItem("email")
+             + "?subject=" + escape("GO Bikes- You're being Pinged!")
+             + "&body=" + escape("This is a message from GoBikes. A user wants to use the bikes, so it'd be nice if you hurried up and returned the bike as soon as possible for others to use! Thanks and happy riding!");
+
+    window.location.href = link;
+}
+</script>
+
+
+
+<div class="modal fade" id="Modalq" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Report a Problem</h4>
+      </div>
+      <div class="modal-body">
+      		<h1> Report a problem or broken part to Sam </h1>
+			<p> Please describe the problem with the bike so Sam knows a bit more about the issue.  </p>
+
+    <form action="Email.html">
+<textarea name="Message" cols="50" rows="10"
+placeholder ="Please desribe the problem for Sam.">
+</textarea>
+<br />
+<input type="submit" />
+</form>
+
+
+<p id="test"></p>
+
+<br>
+<br>
+
+      </div>
+
+            <script>
+          function Email(){
+          document.getElementById("test").inner HTML = "It worked";
+          }
+      </script>
+
+            </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
