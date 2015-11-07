@@ -32,15 +32,19 @@
 	<input type="submit" value="Checkin">
 </form>		
 
+<br>
+<br>
+
+<form action="Report.html">
+	<input type="submit" value="Report a Problem">
+</form>	
+
 
 <script>
 function Showinfo(){
 
 if((localStorage.getItem("name"))!= "")	{
-	document.getElementById("taken").innerHTML = "This bike is currently in use. The person and contact information are:\n\n";
-
-	
-
+	document.getElementById("taken").innerHTML = "This bike is currently in use. The person and contact information are:<br /><br />"
 	document.getElementById("chicken").innerHTML = "Person Name: " + localStorage.getItem("name");
 	document.getElementById("chicken2").innerHTML = "Email: " + localStorage.getItem("email");
 	document.getElementById("chicken3").innerHTML = "Time checked out: " + localStorage.getItem("time");
