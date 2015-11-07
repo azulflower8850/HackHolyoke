@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+<h1> THE BIKES </h1>
+
+
+
+<p> Bike 1 </p>
+
+<button type="button" onclick="Showinfo()">Click here to see who has the bike</button>
+<p id="taken"></p>
+<p id="chicken"></p>
+<p id="chicken2"></p>
+<p id="chicken3"></p>
+<p id="open"></p>
+
+  
+
+
+<script>
+function Showinfo(){
+if((localStorage.getItem("name"))!= "") {
+  document.getElementById("taken").innerHTML = "This bike is currently in use. The person and contact information are:";
+  document.getElementById("chicken").innerHTML = "Person Name: " + localStorage.getItem("name");
+  document.getElementById("chicken2").innerHTML = "Email: " + localStorage.getItem("email");
+  document.getElementById("chicken3").innerHTML = "Time checked out: " + localStorage.getItem("time");
+}
+else
+{
+  document.getElementById("open").innerHTML = "It's Available!";
+}
+}
+</script>
+
+
+<form action="Checkout.html">
+  <input type="submit" value="Checkout">
+</form> 
+
+
+<form action="Checkin.html">
+  <input type="submit" value="Checkin">
+</form> 
+
+</body>
+</html>
