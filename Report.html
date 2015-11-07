@@ -21,7 +21,11 @@ function sendMail() {
              + "&body=" + escape(document.getElementById('msg').value);
 
     window.location.href = link;
+
+
+    localStorage.setItem("Reported", "1");
 }
+
 
 </script>
 
@@ -32,6 +36,21 @@ function sendMail() {
     <input type="submit" value="Back to Main">
 </form>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<p> For Administrative purposes regarding repairs. Please don't touch! </p>
+<button type="button" onclick="ResetReport()"> Reset Status </button>
+<p id="reset"></p>
+
+<script>
+function ResetReport(){
+	localStorage.setItem("Reported", "0");
+	document.getElementById("reset").innerHTML = "Repairs finished. Things back in order."
+}
+</script>
 
 
 
