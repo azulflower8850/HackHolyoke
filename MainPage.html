@@ -25,9 +25,9 @@ function Showinfo(){
 
 if((localStorage.getItem("name"))!= "")	{
 	document.getElementById("taken").innerHTML = "This bike is currently in use. The person and contact information are:";
-	document.getElementById("chicken").innerHTML = localStorage.getItem("name");
-	document.getElementById("chicken2").innerHTML = localStorage.getItem("email");
-	document.getElementById("chicken3").innerHTML = localStorage.getItem("time");
+	document.getElementById("chicken").innerHTML = "Person Name: " + localStorage.getItem("name");
+	document.getElementById("chicken2").innerHTML = "Email: " + localStorage.getItem("email");
+	document.getElementById("chicken3").innerHTML = "Time checked out: " + localStorage.getItem("time");
 }
 else
 {
