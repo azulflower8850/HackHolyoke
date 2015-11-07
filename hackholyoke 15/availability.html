@@ -230,6 +230,8 @@
 </body>
 </html>
 
+
+
 <div class="modal fade" id="Modalq" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -238,14 +240,35 @@
         <h4 class="modal-title" id="myModalLabel">Report a Problem</h4>
       </div>
       <div class="modal-body">
-      		<h2> Report a Problem or Broken Part to Sam </h2>
-			<p> Please describe the problem with the bike so Sam knows a bit more about the issue.</p>
+      		<h1> Report a problem or broken part to Sam </h1>
+			<p> Please describe the problem with the bike so Sam knows a bit more about the issue.  </p>
+
+    <form action="Email.html">
+<textarea name="Message" cols="50" rows="10"
+placeholder ="Please desribe the problem for Sam.">
+</textarea>
+<br />
+<input type="submit" />
+</form>
+
+
+<p id="test"></p>
+
+<br>
+<br>
+
       </div>
+
+            <script>
+          function Email(){
+          document.getElementById("test").inner HTML = "It worked";
+          }
+      </script>
+
+            </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
-
-
