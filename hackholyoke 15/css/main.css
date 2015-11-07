@@ -12,6 +12,11 @@ body{
 	font-size: 50px;
 }
 
+#report {
+	font-size: 12px;
+	text-align: center;	
+}
+
 .input{
 	margin-left: 6%;
 }
