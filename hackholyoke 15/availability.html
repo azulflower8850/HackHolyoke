@@ -91,7 +91,10 @@ function Checkout() {
         <h4 class="modal-title" id="myModalLabel">Unavailable - Reserve</h4>
       </div>
       <div class="modal-body">
-      		<h1> Checking In </h1>
+	      	<h1> Want the bike? Ping the User </h1>
+	      	<button type="button" onclick="sendPing(); return false"> Send Ping </button>
+
+      		<h1> Returning Bike? Check-In Here: </h1>
 
 			<p> Remember your password? Now use it to check in! </p>
 			<input id="pass" type="String">
@@ -105,11 +108,6 @@ function Checkout() {
 			<p id="test"></p>
 			<p id="test2"></p>
 
-
-
-			<form action="MainPage.html">
-			    <input type="submit" value="Back to Main">
-			</form>
 
 
 			<script> 
@@ -132,7 +130,7 @@ function Checkout() {
 			document.getElementById("check").innerHTML = text;
 			document.getElementById("test1").innerHTML = pass;
 			document.getElementById("test2").innerHTML = passcheck;
-			}
+			}			
 			
 			
 			
@@ -157,7 +155,6 @@ function Checkout() {
       </div>
       <div class="modal-body">
       		<p>Bike is broken and unavailable!</p>
-			}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -232,9 +229,20 @@ function Checkout() {
 	Report a Problem
 	</button>
 	</div>
+
 	
 </body>
 </html>
+
+<script>
+	function sendPing() {
+    var link = "mailto:"+localStorage.getItem("email")
+             + "?subject=" + escape("GO Bikes- You're being Pinged!")
+             + "&body=" + escape("This is a message from GoBikes. A user wants to use the bikes, so it'd be nice if you hurried up and returned the bike as soon as possible for others to use! Thanks and happy riding!");
+
+    window.location.href = link;
+}
+</script>
 
 
 
