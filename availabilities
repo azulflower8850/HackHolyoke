@@ -302,6 +302,96 @@
 					</figcaption>
 				</figure>				
 			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn1" data-toggle="modal" data-target="#Modala">
+					  	<img src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 6</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn1" data-toggle="modal" data-target="#Modala">
+					  	<img src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 7</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn2" data-toggle="modal" data-target="#Modalu">
+					  	<img id = "red" src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 8</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn1" data-toggle="modal" data-target="#Modala">
+					  	<img src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 9</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn3" data-toggle="modal" data-target="#Modalb">
+					  	<img id = "yellow" src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 10</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn1" data-toggle="modal" data-target="#Modala">
+					  	<img src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 11</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn1" data-toggle="modal" data-target="#Modala">
+					  	<img src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 12</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn2" data-toggle="modal" data-target="#Modalu">
+					  	<img id = "red" src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 13</p>
+					</figcaption>
+				</figure>				
+			</li>
+			<li>
+				<figure>
+					<button type="button" id="btn2" data-toggle="modal" data-target="#Modalu">
+					  	<img id = "red" src = "images/bike.png">
+					</button>					
+					<figcaption>
+						<p class = "description-p">Bike 14</p>
+					</figcaption>
+				</figure>				
+			</li>
 		</ul>
 	</section> 
 </body>
