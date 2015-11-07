@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>Checkout</h1>
+
+<p> Please enter your name </p>
+<input id="name" type="String">
+
+<p>Please enter your email address </p>
+<input id="email" type="String">
+
+<p>Please enter the time you took the bike </p>
+<input id="time" type="String">
+
+<button type="button" onclick="Checkout()">Submit</button>
+
+<form action="MainPage.html">
+    <input type="submit" value="Back to Main">
+</form>
+
+<p id="demo"></p>
+<p id="chicken"></p>
+<p id="chicken2"></p>
+<p id="chicken3"></p> 
+
+<script>
+function Checkout() {
+	var name, email, time, text;
+
+	name = document.getElementById("name").value;
+	email = document.getElementById("email").value;
+	time = document.getElementById("time").value;
+
+	localStorage.setItem("name", name);
+	localStorage.setItem("email", email);
+	localStorage.setItem("time", time);
+
+	text = "You have checked out this bike. Remember to return it when you're done!"
+
+	document.getElementById("demo").innerHTML = text;
+	document.getElementById("chicken").innerHTML = localStorage.getItem("name");
+	document.getElementById("chicken2").innerHTML = localStorage.getItem("email");
+	document.getElementById("chicken3").innerHTML = localStorage.getItem("time");
+    
+}
+</script>
+
+
+</body>
+</html>

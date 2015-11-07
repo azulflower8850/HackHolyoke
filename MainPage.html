@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+<h1> THE BIKES </h1>
+
+
+
+<p> Bike 1 </p>
+<button type="button" onclick="Showinfo()">Click here to see who has the bike</button>
+<p id="chicken"></p>
+<p id="chicken2"></p>
+<p id="chicken3"></p>
+
+<script>
+function Showinfo(){
+
+	
+document.getElementById("chicken").innerHTML = localStorage.getItem("name");
+document.getElementById("chicken2").innerHTML = localStorage.getItem("email");
+document.getElementById("chicken3").innerHTML = localStorage.getItem("time");
+}
+
+</script>
+
+
+<form action="Checkout.html">
+	<input type="submit" value="Checkout">
+</form>	
+
+</body>
+</html>
