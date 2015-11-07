@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1> Ping People you think are taking too Long</h1>
+
+
+<button type="button" onclick="sendPing(); return false"> Send Ping </button>
+
+
+<script>
+function sendPing() {
+    var link = "mailto:"+localStorage.getItem("email")
+             + "?subject=" + escape("GO Bikes- You're being Pinged!")
+             + "&body=" + escape("This is a message from GoBikes. A user wants to use the bikes, so it'd be nice if you hurried up and returned the bike as soon as possible for others to use! Thanks and happy riding!");
+
+    window.location.href = link;
+}
+
+</script>
+
+<br>
+<br>
+
+<form action="MainPage.html">
+    <input type="submit" value="Back to Main">
+</form>
+
+
+
+
+</body>
+</html>
+

@@ -6,20 +6,24 @@
 
 <h1> Report a problem or broken part to Sam </h1>
 
-<p> Please describe the problem with the bike so Sam knows a bit more about the issue. </p>
-
-
-
-<form action="Email.html">
-<textarea name="Message" cols="50" rows="30"
-placeholder ="Please desribe the problem for Sam.">
+<p> Please describe the problem with the bike so Sam knows a bit more about the issue. Remember to specify the bike number and be as specific as possible. </p>
+<textarea id="msg"rows="20" cols="50" >
+    
 </textarea>
-<br />
-<input type="submit" />
-</form>
+<button onclick="sendMail(); return false">Send</button>
 
 
-<p id="test"></p>
+
+<script>
+function sendMail() {
+    var link = "mailto:kevin.zhang@students.olin.edu"
+             + "?subject=" + escape("GO Bikes- Broken Part Report")
+             + "&body=" + escape(document.getElementById('msg').value);
+
+    window.location.href = link;
+}
+
+</script>
 
 <br>
 <br>
@@ -28,17 +32,6 @@ placeholder ="Please desribe the problem for Sam.">
     <input type="submit" value="Back to Main">
 </form>
 
-
-<script>
-function Email(){
-
-
-	document.getElementById("test").inner HTML = "It worked";
-
-
-}
-
-</script>
 
 
 
