@@ -10,6 +10,8 @@
 
 <p> Bike 1 </p>
 
+<br>
+
 <button type="button" onclick="Showinfo()">Click here to see who has the bike</button>
 <p id="taken"></p>
 <p id="chicken"></p>
@@ -17,14 +19,28 @@
 <p id="chicken3"></p>
 <p id="open"></p>
 
+<br>
 	
+<form action="Checkout.html">
+	<input type="submit" value="Checkout">
+</form>	
+
+<br>
+<br>
+
+<form action="Checkin.html">
+	<input type="submit" value="Checkin">
+</form>		
 
 
 <script>
 function Showinfo(){
 
 if((localStorage.getItem("name"))!= "")	{
-	document.getElementById("taken").innerHTML = "This bike is currently in use. The person and contact information are:";
+	document.getElementById("taken").innerHTML = "This bike is currently in use. The person and contact information are:\n\n";
+
+	
+
 	document.getElementById("chicken").innerHTML = "Person Name: " + localStorage.getItem("name");
 	document.getElementById("chicken2").innerHTML = "Email: " + localStorage.getItem("email");
 	document.getElementById("chicken3").innerHTML = "Time checked out: " + localStorage.getItem("time");
@@ -40,14 +56,7 @@ else
 </script>
 
 
-<form action="Checkout.html">
-	<input type="submit" value="Checkout">
-</form>	
 
-
-<form action="Checkin.html">
-	<input type="submit" value="Checkin">
-</form>	
 
 </body>
 </html>
